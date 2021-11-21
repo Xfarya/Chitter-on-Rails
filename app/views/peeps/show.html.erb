@@ -4,3 +4,31 @@
   <li><%= link_to "Edit", edit_peep_path(@peep) %></li>
   <li><%= link_to "Delete", peep_path(@peep), method: :delete, data: { confirm: "Are you sure?" }%></li>
 </ul>
+
+<%# <h2>Comments</h2> %>
+<% @peep.comments.each do |comment| %>
+  <p>
+    <strong>by:</strong>
+    <%= comment.commenter %>
+  </p>
+
+  <p>
+    <%# <strong>Comment:</strong> %>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<h2>respond:</h2>
+<%= form_with model: [ @peep, @peep.comments.build ] do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

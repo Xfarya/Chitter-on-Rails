@@ -4,3 +4,9 @@
 <strong>:</strong>
 <%=comment.body%>
 </p>
+
+<p>
+  <%= link_to 'Destroy Comment', [comment.peep, comment],
+              method: :delete,
+              data: { confirm: "Are you sure?" } %>
+</p>

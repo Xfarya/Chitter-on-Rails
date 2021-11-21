@@ -1,5 +1,7 @@
 <ul>
 <% @peeps.each do |peep| %>
-<li> <%= peep.body%> </li>
+<li> <%=link_to peep.body, peep%> </li>
 <%end%>
 </ul>
+
+<%= link_to "New Peep", new_peep_path %>

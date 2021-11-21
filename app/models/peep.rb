@@ -1,4 +1,4 @@
 class Peep < ApplicationRecord
-  has_many :comments
+  has_many :comments, dependent: :destroy
   validates :body, presence: true, length: { minimum: 1 } 
 end

@@ -6,29 +6,7 @@
 </ul>
 
 <%# <h2>Comments</h2> %>
-<% @peep.comments.each do |comment| %>
-  <p>
-    <strong>by:</strong>
-    <%= comment.commenter %>
-  </p>
+<%= render @peep.comments %>
 
-  <p>
-    <%# <strong>Comment:</strong> %>
-    <%= comment.body %>
-  </p>
-<% end %>
-
-<h2>respond:</h2>
-<%= form_with model: [ @peep, @peep.comments.build ] do |form| %>
-  <p>
-    <%= form.label :commenter %><br>
-    <%= form.text_field :commenter %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+<h3>respond</h3>
+<%= render 'comments/form' %>

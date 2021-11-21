@@ -2,4 +2,5 @@
 
 <ul>
   <li><%= link_to "Edit", edit_peep_path(@peep) %></li>
+  <li><%= link_to "Delete", peep_path(@peep), method: :delete, data: { confirm: "Are you sure?" }%></li>
 </ul>

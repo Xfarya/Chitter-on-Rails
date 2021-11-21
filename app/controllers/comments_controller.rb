@@ -6,10 +6,10 @@ class CommentsController < ApplicationController
     redirect_to peep_path(@peep)
   end
 
-  def destory 
+  def destroy 
     @peep = Peep.find(params[:peep_id])
     @comment = @peep.comments.find(params[:id])
-    @peep.destroy
+    @comment.destroy
     redirect_to peep_path(@peep)
   end
 

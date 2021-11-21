@@ -21,6 +21,20 @@ class PeepsController < ApplicationController
     end
   end
 
+  def edit
+    @peep = Peep.find(params[:id])
+  end
+
+  def update
+    @peep = Peep.find(params[:id])
+
+    if @peep.update(peep_params)
+      redirect_to @peep
+    else
+      render :edit
+    end
+  end
+
   private 
 
    def peep_params
